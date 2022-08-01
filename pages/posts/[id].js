@@ -4,39 +4,40 @@ import { Text } from "../../components/Text";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: [],
+//     fallback: true,
+//   };
+// };
 
-export const getStaticProps = async (context) => {
-  const { id } = context.params;
-  console.log("making reqeust from id: ", id);
+// export const getStaticProps = async (context) => {
+//   const { id } = context.params;
+//   console.log("making reqeust from id: ", id);
 
-  const page = await getPage(id);
-  const blocks = await getBlock(id);
+//   const page = await getPage(id);
+//   const blocks = await getBlock(id);
 
-  if (page) {
-    return {
-      props: {
-        id,
-        post: page,
-        blocks,
-        noId: false,
-      },
-      revalidate: 15,
-    };
-  } else {
-    return {
-      props: {
-        noId: true,
-      },
-    };
-  }
-};
+//   if (page) {
+//     return {
+//       props: {
+//         id,
+//         post: page,
+//         blocks,
+//         noId: false,
+//       },
+//       revalidate: 15,
+//     };
+//   } else {
+//     return {
+//       props: {
+//         noId: true,
+//       },
+//     };
+//   }
+// };
 
 const renderBlock = (block) => {
   const { type, id } = block;
@@ -122,7 +123,7 @@ const renderBlock = (block) => {
       const caption = value?.caption ? value.caption[0]?.plain_text : "";
       return (
         <figure>
-          <img src={src} alt={caption} width={600} height={200} />
+          <Image src={src} alt={caption} width={600} height={200} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );

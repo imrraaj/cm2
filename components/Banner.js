@@ -72,7 +72,7 @@ export default function HeroContentLeft() {
           One of the biggest community of cryptocurrency investors based in Asia
         </Title>
         <Text className={classes.description} size="xl" mt="xl">
-          We've worked with some of the biggest crypto projects, exchange and
+          We&apos;ve worked with some of the biggest crypto projects, exchange and
           VCs. We provide multiple services related to marketing and promotion.
         </Text>
 

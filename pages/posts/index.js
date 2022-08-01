@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { getDatabase } from "../../utils/notion";
 
-export const getStaticProps = async () => {
-  const database = await getDatabase(process.env.NOTION_DATABASE);
-  console.log("making reqeust from posts/ ");
-  console.log(database);
-  return {
-    props: {
-      posts: database,
-    },
-    revalidate: 15,
-  };
-};
+// export const getStaticProps = async () => {
+//   const database = await getDatabase(process.env.NOTION_DATABASE);
+//   console.log("making reqeust from posts/ ");
+//   console.log(database);
+//   return {
+//     props: {
+//       posts: database,
+//     },
+//     revalidate: 15,
+//   };
+// };
 
 function Home({ posts }) {
   return (

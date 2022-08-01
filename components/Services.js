@@ -78,14 +78,12 @@ export default function ActionsGrid() {
   const { classes, theme } = useStyles();
 
   const items = mockdata.map((item) => {
-    const [o, setO] = useState();
     return (
       <Grid.Col
         key={item.title}
         className={classes.item}
         span={12}
         lg={4}
-        onClick={() => setO(!o)}
       >
         <Box
           sx={{
