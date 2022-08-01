@@ -13,6 +13,7 @@
     "@mantine/hooks": "^5.0.0",
     "@mantine/next": "^5.0.0",
     "@mantine/notifications": "^5.0.0",
+    "@notionhq/client": "^1.0.4",
     "@tabler/icons": "^1.78.1",
     "framer-motion": "^6.5.1",
     "next": "12.2.3",

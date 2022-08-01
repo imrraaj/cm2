@@ -1,14 +1,39 @@
-import { Modal } from "@mantine/core";
+import { Modal, Transition } from "@mantine/core";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaTwitter, FaMediumM, FaTelegramPlane } from "react-icons/fa";
 import styles from "../styles/Navbar.module.scss";
-import { useContent } from "../utils/ContentContext";
 
 import { Button, Paper, Text, Group, CloseButton } from "@mantine/core";
 
+const navbar = {
+  logo: "Crypto Maxxis",
+  links: [
+    {
+      text: "Home",
+      url: "/#home",
+    },
+    {
+      text: "Stats",
+      url: "/#stats",
+    },
+    {
+      text: "Services",
+      url: "/#services",
+    },
+    {
+      text: "FAQs",
+      url: "/#faqs",
+    },
+    {
+      text: "Posts",
+      url: "/posts",
+    },
+  ],
+  profileLinks: [],
+};
+
 function Navbar() {
-  const content = useContent();
   const [isOpen, setIsOpen] = useState(false);
   const [isContactOpen, SetisContactOpen] = useState(false);
 
@@ -17,7 +42,7 @@ function Navbar() {
       <header className={styles.header}>
         <nav className={`container ${styles.nav}`}>
           <div className={styles.logo}>
-            <Link href="/">{content.navbar.logo}</Link>
+            <Link href="/">{navbar.logo}</Link>
           </div>
 
           <ul
@@ -27,7 +52,7 @@ function Navbar() {
                 : styles.primary__navigation
             }
           >
-            {content.navbar.links.map((item, __index) =>
+            {navbar.links.map((item, __index) =>
               item.text == "Contact" ? (
                 ""
               ) : (
@@ -46,15 +71,13 @@ function Navbar() {
             )}
 
             <li
-              className={`${styles.nav__link} ${styles.ctabutton} `}
+              className={styles.nav__link}
               onClick={() => {
                 SetisContactOpen(!isContactOpen);
                 setIsOpen(!isOpen);
               }}
             >
-              <Link href={"#contact"} scroll={false}>
-                Contact
-              </Link>
+              <Button color="green">Contact</Button>
             </li>
           </ul>
           <button
@@ -81,76 +104,51 @@ function Navbar() {
         </nav>
       </header>
 
-      {isContactOpen && (
-        <Paper
-          withBorder
-          p="lg"
-          radius="md"
-          shadow="md"
-          style={{
-            maxWidth: "20ch",
-            zIndex: 20,
-            position: "fixed",
-            top: "75px",
-            right: "16px",
-          }}
-        >
-          <Group position="apart" mb="xs">
-            <Text size="md" weight={500}>
-              Contact
-            </Text>
-            <CloseButton onClick={() => SetisContactOpen(!isContactOpen)} />
-          </Group>
-
-          <Group position="apart" mt="xs">
-            <Button
-              as={Link}
-              to="https://google.com"
-              variant="outline"
-              size="xs"
-            >
-              <FaTwitter />
-            </Button>
-            <Button
-              as={Link}
-              to="https://google.com"
-              variant="outline"
-              size="xs"
-            >
-              <FaTelegramPlane />
-            </Button>
-          </Group>
-        </Paper>
-      )}
-      {/* <dialog className={styles.dialog} open={isContactOpen}
-        style={{
-          display: isContactOpen ? "flex" : "none"
-        }}
+      <Transition
+        mounted={isContactOpen}
+        transition="fade"
+        duration={400}
+        timingFunction="ease"
       >
-        <div className={styles.dialog__div}>
-          <div className={styles.socials}>
-            <Link href={content.socials.twitter}>
-              <button className={`${styles.social__round} btn`}>
-                <FaTwitter />
-              </button>
-            </Link>
-            <Link href={content.socials.medium}>
-              <button className={`${styles.social__round} btn`}>
-                <FaMediumM />
-              </button>
-            </Link>
-            <Link href={content.socials.telegram}>
-              <button className={`${styles.social__round} btn`}>
-                <FaTelegramPlane />
-              </button>
-            </Link>
-          </div>
-          <button className="btn"
-            onClick={() => { SetisContactOpen(!isContactOpen); }}
-          >Collapse</button>
-        </div>
+        {(styles) => (
+          <Paper
+            withBorder
+            p="md"
+            style={{
+              ...styles,
+              zIndex: 20,
+              position: "fixed",
+              top: "4rem",
+              right: "0.5rem",
+            }}
+          >
+            <Group position="apart">
+              <Text size="lg" weight="bold">
+                Contact here
+              </Text>
+              <CloseButton onClick={() => SetisContactOpen(!isContactOpen)} />
+            </Group>
 
-      </dialog> */}
+            <Group position="left" mt="xs">
+              <Link href="https://google.com">
+                <Button variant="light" size="sm">
+                  <FaTwitter />
+                </Button>
+              </Link>
+              <Link href="https://google.com">
+                <Button variant="light" size="sm">
+                  <FaTelegramPlane />
+                </Button>
+              </Link>
+              <Link href="https://google.com">
+                <Button variant="light" size="sm">
+                  <FaTelegramPlane />
+                </Button>
+              </Link>
+            </Group>
+          </Paper>
+        )}
+      </Transition>
     </>
   );
 }

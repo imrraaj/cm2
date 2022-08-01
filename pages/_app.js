@@ -1,17 +1,20 @@
 import "../styles/globals.scss";
-
-import { ContentProvider } from "../utils/ContentContext";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { MantineProvider } from "@mantine/styles";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ContentProvider>
+      <MantineProvider
+        theme={{
+          primaryColor:"green"
+        }}
+      >
         <Navbar />
         <Component {...pageProps} />
         <Footer />
-      </ContentProvider>
+      </MantineProvider>
     </>
   );
 }

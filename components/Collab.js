@@ -1,56 +1,49 @@
-import { Container, Grid, Title, Box, Center, Stack } from "@mantine/core";
+import { Container, Grid, Title } from "@mantine/core";
 import Image from "next/image";
 
-export default function Collab({ Ref }) {
+const data = [
+  { src: "/kucoin.png", alt: "kucoin" },
+  { src: "/ascend.png", alt: "ascend" },
+  { src: "/mexc.png", alt: "Mexc Global" },
+  { src: "/tokocrypto.png", alt: "Toko Crypto" },
+  { src: "/k.png", alt: "K" },
+  { src: "/RG.png", alt: "RG" },
+  { src: "/bombcrypto.png", alt: "Bomb Crypto" },
+  { src: "/angelic.jpg", alt: "Angelic" },
+  { src: "/rbitau.png", alt: "RBITAU" },
+  { src: "/ricewallet.png", alt: "Rice Wallet" },
+  { src: "/metagear.png", alt: "Meta Gear" },
+];
+export default function Collab() {
   return (
-    <Container my={32} ref={Ref}>
+    <Container my={32}>
       <Title align="center" mb={32} style={{ color: "white" }}>
-        Our Sponsers
+        Clients
       </Title>
       <Grid grow justify="center" align="center">
-        <Grid.Col span={6} lg={4}>
-          <img src="/angelic.jpg" alt="me" />
-        </Grid.Col>
+        {data.map(({ src, alt }) => (
+          <Grid.Col
+            key={src}
+            span={6}
+            lg={4}
+            sx={{
+              filter: "grayscale(100%)",
+              transition: "filter 250ms ease-in",
 
-        <Grid.Col span={6} lg={4}>
-          <img src="/ascend.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/bomb_crypto.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/coinw.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/ga.jpeg" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/k.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/ku.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/meta.jpeg" alt="alt text" />
-        </Grid.Col>
-
-        <Grid.Col span={6} lg={4}>
-          <img src="/mexc2.jpeg" alt="alt text" />
-        </Grid.Col>
-
-        <Grid.Col span={6} lg={4}>
-          <img src="/rbi.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4}>
-          <img src="/rg.png" alt="alt text" />
-        </Grid.Col>
-
-        <Grid.Col span={6} lg={4}>
-          <img src="/tc.png" alt="alt text" />
-        </Grid.Col>
-        <Grid.Col span={6} lg={4} hidden>
-          <img src="/Rice Wallet.png" alt="alt text" />
-        </Grid.Col>
+              "&:hover": {
+                filter: "grayscale(0%)",
+              },
+            }}
+          >
+            <Image
+              src={src}
+              alt={alt}
+              width="250%"
+              height="100%"
+              style={{display:"block",objectFit:"contain"}}
+            />
+          </Grid.Col>
+        ))}
       </Grid>
     </Container>
   );

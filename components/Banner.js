@@ -1,31 +1,3 @@
-// import Link from "next/link";
-// import React from "react";
-// import styles from "../styles/Banner.module.scss";
-import { useContent } from '../utils/ContentContext';
-
-// export default function Banner() {
-
-//   return (
-//     <>
-//     {/* <section>
-//       <div className={styles.bg}>
-//       <div className={styles.banner} id="home">
-//         <div className={`container ${styles.banner_desc}`}>
-//           <h1>
-//             {content.banner.title}
-//           </h1>
-//           <p>{content.banner.desc}</p>
-//           <Link href={content.banner.link}>
-//             <button className={`btn ${styles.cta}`}> {content.banner.cta}</button>
-//           </Link>
-//         </div>
-//       </div>
-//       </div>
-//     </section> */}
-//     </>
-//   );
-// }
-
 import {
   createStyles,
   Overlay,
@@ -33,28 +5,28 @@ import {
   Title,
   Button,
   Text,
-} from '@mantine/core';
+} from "@mantine/core";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   hero: {
-    position: 'relative',
-    backgroundImage:
-      'url(https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG5hdHVyZXxlbnwwfHwwfGJsYWNrfA%3D%3D?q=60)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '80vh',
-    backgroundAttachment: 'fixed',
+    position: "relative",
+    backgroundImage: "url(/bg.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    minHeight: "80vh",
+    backgroundAttachment: "fixed",
   },
 
   container: {
     height: 700,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
     paddingBottom: theme.spacing.xl * 6,
     zIndex: 1,
-    position: 'relative',
+    position: "relative",
   },
 
   title: {
@@ -63,7 +35,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 900,
     lineHeight: 1.1,
 
-    [theme.fn.smallerThan('xs')]: {
+    [theme.fn.smallerThan("xs")]: {
       fontSize: 40,
       lineHeight: 1.3,
     },
@@ -74,8 +46,8 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 600,
     maxWidth: 600,
 
-    [theme.fn.smallerThan('sm')]: {
-      maxWidth: '100%',
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: "100%",
       fontSize: theme.fontSizes.md,
     },
   },
@@ -87,7 +59,6 @@ const useStyles = createStyles((theme) => ({
 
 export default function HeroContentLeft() {
   const { classes } = useStyles();
-  const content = useContent();
 
   return (
     <div className={classes.hero} id="home">
@@ -97,19 +68,19 @@ export default function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title}>{content.banner.title}</Title>
+        <Title className={classes.title}>
+          One of the biggest community of cryptocurrency investors based in Asia
+        </Title>
         <Text className={classes.description} size="xl" mt="xl">
-          {content.banner.desc}
+          We've worked with some of the biggest crypto projects, exchange and
+          VCs. We provide multiple services related to marketing and promotion.
         </Text>
 
-        <Button
-          variant="filled"
-          size="lg"
-          radius="md"
-          className={classes.control}
-        >
-          Get started
-        </Button>
+        <Link href="https://t.me/thedeltaw" passHref>
+          <Button component="a" size="lg" className={classes.control}>
+            Contact
+          </Button>
+        </Link>
       </Container>
     </div>
   );

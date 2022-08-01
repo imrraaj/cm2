@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Banner from "../components/Banner";
-import About from "../components/About";
 import Services from "../components/Services";
 import Stats from "../components/Stats";
 import Collab from "../components/Collab";
@@ -9,41 +8,47 @@ import Faqs from "../components/Faqs";
 import { Button, Paper, Text, Group, CloseButton } from "@mantine/core";
 
 export default function Home() {
+
+  const [showCookie, setShowCookie] = React.useState(true);
+
+
+
   function CookiesBanner() {
     return (
       <Paper
         withBorder
         p="lg"
-        radius="md"
-        shadow="md"
-        style={{
-          maxWidth: "40ch",
+        sx={{
+          width: "calc(100% - 0.5rem)",
           zIndex: 20,
           position: "fixed",
-          top: "75px",
-          right: "0",
+          bottom: "1rem",
+          left: "50%",
+          transform: "translateX(-50%)",
         }}
       >
         <Group position="apart" mb="xs">
-          <Text size="md" weight={500}>
+          <Text size="lg" weight="bolder">
             Allow cookies
           </Text>
-          <CloseButton mr={-9} mt={-9} />
+          <CloseButton onClick={() => setShowCookie(false)} />
         </Group>
-        <Text color="dimmed" size="xs">
+
+        <Text color="gray" size="sm">
           WE have something exciting to tell you!
         </Text>
-        <Group position="right" mt="xs">
+
+        <Group mt="lg">
           <Button
             variant="default"
-            size="xs"
+            size="sm"
             onClick={() => setShowCookie(false)}
           >
             Preferences
           </Button>
           <Button
             variant="outline"
-            size="xs"
+            size="sm"
             onClick={() => setShowCookie(false)}
           >
             Accept all
@@ -53,12 +58,7 @@ export default function Home() {
     );
   }
 
-  const [showCookie, setShowCookie] = React.useState(false);
 
-  useEffect(() => {
-    setShowCookie(true);
-    setTimeout(() => setShowCookie(false), 7000);
-  }, []);
   return (
     <main style={{ position: "relative" }}>
       {showCookie && <CookiesBanner />}
