@@ -84,6 +84,7 @@ export default function ActionsGrid() {
         className={classes.item}
         span={12}
         lg={4}
+        sx={theme => {backgroundColor:theme.colors.cyan[2]}}
       >
         <Box
           sx={{

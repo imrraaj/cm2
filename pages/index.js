@@ -19,7 +19,7 @@ export default function Home() {
         withBorder
         p="lg"
         sx={{
-          width: "calc(100% - 0.5rem)",
+          width: "min(100% - 0.5rem , 1080px)",
           zIndex: 20,
           position: "fixed",
           bottom: "1rem",
