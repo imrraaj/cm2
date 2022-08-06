@@ -31,19 +31,22 @@
 }
 .onhover {
   color: white;
-  transform: translateY(100vmax);
+  transform: translateY(100vmax) rotateY(180deg);
   transition: transform var(--delay) ease;
   -webkit-transition: transform var(--delay) ease;
   transition-duration: var(--delay);
 }
 
-.card:hover .cardIcon {
-  top: 25%;
-  left: 15%;
-}
-.card:hover .cardIcon > div{
+// .card:hover{
+//   transform: rotateY(180deg);
+// }
+// .card:hover .cardIcon {
+//   top: 25%;
+//   left: 15%;
+// }
+.card:hover .cardIcon{
   opacity: 0;
 }
 .card:hover .onhover {
-  transform: translateY(0);
+  transform: translateY(0) rotateY(180deg);
 }

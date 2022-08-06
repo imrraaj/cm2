@@ -59,6 +59,10 @@ const useStyles = createStyles((theme) => ({
     transform: "scale(0.85)",
     transition: "box-shadow 150ms ease, transform 500ms ease",
     position: "relative",
+
+    "&:hover": {
+      transform: "rotateY(180deg) scale(0.85)",
+    },
   },
 }));
 
