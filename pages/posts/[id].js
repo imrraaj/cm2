@@ -160,8 +160,8 @@ function Post(props) {
     <>
       <Head>
         <title>{title}</title>
-        <Script src="https://cdn.tailwindcss.com"></Script>
       </Head>
+        <Script src="https://cdn.tailwindcss.com"></Script>
 
       <Link href="/posts">
         <span className="block my-10 text-md underline font-semibold text-emerald-500 cursor-pointer">
