@@ -1,4 +1,5 @@
 import { getPage, getBlock } from "../../utils/notion";
+import Script from "next/script";
 
 import { Text } from "../../components/Text";
 import Head from "next/head";
@@ -159,7 +160,7 @@ function Post(props) {
     <>
       <Head>
         <title>{title}</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <Script src="https://cdn.tailwindcss.com"></Script>
       </Head>
 
       <Link href="/posts">
