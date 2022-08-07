@@ -19,8 +19,8 @@ export const data = {
         url: "/#faqs",
       },
       {
-        text: "Posts",
-        url: "/posts",
+        text: "Feed",
+        url: "/feed",
       },
     ],
     profileLinks: [],

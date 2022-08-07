@@ -26,11 +26,10 @@ const navbar = {
       url: "/#faqs",
     },
     {
-      text: "Posts",
-      url: "/posts",
+      text: "Feed",
+      url: "/feed",
     },
   ],
-  profileLinks: [],
 };
 
 function Navbar() {
@@ -53,21 +52,18 @@ function Navbar() {
             }
           >
             {navbar.links.map((item, __index) =>
-              item.text == "Contact" ? (
-                ""
-              ) : (
-                <li
-                  key={__index}
-                  className={styles.nav__link}
-                  onClick={() => {
-                    setIsOpen(!isOpen);
-                  }}
-                >
-                  <Link href={item.url} scroll={false}>
-                    {item.text}
-                  </Link>
-                </li>
-              )
+              item.text !== "Contact" &&
+              <li
+                key={__index}
+                className={styles.nav__link}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                <Link href={item.url} scroll={false}>
+                  {item.text}
+                </Link>
+              </li>
             )}
 
             <li

@@ -15,8 +15,7 @@
   position: relative;
   transition: all 1s ease;
   overflow: hidden;
-
-  --delay: 750ms;
+  --delay: 500ms;
 }
 
 .cardIcon {
@@ -27,9 +26,11 @@
   transform: translate(-50%, -50%);
 
   transition: all var(--delay) ease;
-  
+
 }
+
 .onhover {
+  width: 80%;
   color: white;
   transform: translateY(100vmax) rotateY(180deg);
   transition: transform var(--delay) ease;
@@ -37,16 +38,15 @@
   transition-duration: var(--delay);
 }
 
-// .card:hover{
-//   transform: rotateY(180deg);
-// }
+
 // .card:hover .cardIcon {
 //   top: 25%;
 //   left: 15%;
 // }
-.card:hover .cardIcon{
+.card:hover .cardIcon {
   opacity: 0;
 }
+
 .card:hover .onhover {
   transform: translateY(0) rotateY(180deg);
 }

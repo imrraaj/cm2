@@ -51,13 +51,14 @@
     color: var(--clr-neutral-200);
     font-size: var(--ff-small-400);
     transition: color 250ms;
+
     &:hover {
       color: var(--clr-neutral-500);
     }
   }
 }
 
-.ctabutton > a {
+.ctabutton>a {
   border-radius: 0.5em;
   padding: 0.25em 1rem;
   color: var(--clr-primary-300);
@@ -69,7 +70,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .ctabutton > a {
+  .ctabutton>a {
     padding: 0;
     background-color: transparent;
   }
@@ -94,7 +95,7 @@
     transition: left 300ms ease-in;
   }
 
-  .nav__link > a {
+  .nav__link>a {
     color: var(--clr-primary-300);
   }
 

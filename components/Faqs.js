@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Container, Title, Text, Box, Button } from "@mantine/core";
+import { Container, Title, Text, Box, Button, Accordion, Group } from "@mantine/core";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { MdCloseFullscreen } from "react-icons/md";
 import Collapsible from "react-collapsible";
-
+import { FaTelegramPlane } from "react-icons/fa";
 import styles from "../styles/Faqitem.module.scss";
 import Link from "next/link";
 
@@ -47,6 +47,7 @@ function Faqitem({ question, answer, link }) {
   return (
     <div className={styles.container}>
       <Collapsible
+        transitionTime={200}
         trigger={
           <Box className={styles.que_container}>
             <Text color="hsl(0 0% 95%)" weight="bolder" size="lg">
@@ -66,9 +67,12 @@ function Faqitem({ question, answer, link }) {
           </Text>
           {link && (
             <Link href={link} passHref>
-              <Button component="a" variant="outline">
-                Contact
-              </Button>
+              <Text color="green">
+                <Group align="center">
+                  <FaTelegramPlane />
+                  Telegram
+                </Group>
+              </Text>
             </Link>
           )}
         </Box>

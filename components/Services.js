@@ -49,6 +49,7 @@ const useStyles = createStyles((theme) => ({
 
   item: {
     display: "flex",
+    padding:0,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -84,11 +85,12 @@ export default function ActionsGrid() {
               {item.title}
             </Text>
           </div>
-          <p
+          <Text
+          size="lg"
             className={styles.onhover}
             dangerouslySetInnerHTML={{ __html: item.desc }}
           >
-          </p>
+          </Text>
         </div>
       </Grid.Col>
     );
