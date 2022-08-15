@@ -1,12 +1,12 @@
 import { getPage, getBlock } from "../../utils/notion";
 import Script from "next/script";
 
-import { Text } from "../../components/Text";
+import MyCustomText from "../../components/Text";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Container } from "@mantine/core";
+import { Container, Title, Text, Box, Group, Button } from "@mantine/core";
 
 export const getStaticPaths = async () => {
   return {
@@ -47,34 +47,46 @@ const renderBlock = (block) => {
   switch (type) {
     case "heading_1":
       return (
-        <h1 className="mt-10 text-emerald-500 text-5xl font-bold w-fit underline">
+        <Title
+          order={1}
+          mt="10"
+          sx={{ fontWeight: "bold", textDecoration: "underline" }}
+        >
           {value?.rich_text[0]?.plain_text}
-        </h1>
+        </Title>
       );
 
     case "heading_2":
       return (
-        <h2 className="mt-10 text-emerald-500 text-4xl font-bold w-fit underline">
+        <Title
+          order={2}
+          mt="10"
+          sx={{ fontWeight: "bold", textDecoration: "underline" }}
+        >
           {value?.rich_text[0]?.plain_text}
-        </h2>
+        </Title>
       );
 
     case "heading_3":
       return (
-        <h3 className="mt-10 text-emerald-500 text-3xl font-bold w-fit underline">
+        <Title
+          order={3}
+          mt="10"
+          sx={{ fontWeight: "bold", textDecoration: "underline" }}
+        >
           {value?.rich_text[0]?.plain_text}
-        </h3>
+        </Title>
       );
 
     case "paragraph":
-      return <Text text={value?.rich_text[0]} />;
+      return <MyCustomText text={value?.rich_text[0]} />;
 
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
         <ul role="list" className="list-disc ml-4">
           <li className="">
-            <Text text={value?.rich_text[0]} />
+            <MyCustomText text={value?.rich_text[0]} />
           </li>
         </ul>
       );
@@ -85,7 +97,7 @@ const renderBlock = (block) => {
           <label htmlFor={id}>
             <input type="checkbox" id={id} readOnly />{" "}
             <div className="inline-block">
-              <Text text={value?.rich_text[0]} />
+              <MyCustomText text={value?.rich_text[0]} />
             </div>
           </label>
         </div>
@@ -108,17 +120,6 @@ const renderBlock = (block) => {
         </div>
       );
 
-    // case "toggle":
-    //   console.log(value);
-    //   return (
-    //     <details>
-    //       <summary>{value.rich_text[0].plain_text}</summary>
-    //       {value.children?.map((block: any) => (
-    //         <div key={block.id}>{renderBlock(block)}</div>
-    //       ))}
-    //     </details>
-    //   );
-
     case "image":
       const src =
         value.type === "external" ? value.external.url : value.file.url;
@@ -131,7 +132,7 @@ const renderBlock = (block) => {
       );
 
     default:
-      return null;
+      return "";
   }
 };
 
@@ -161,39 +162,50 @@ function Post(props) {
       <Head>
         <title>{title}</title>
       </Head>
-        <Script src="https://cdn.tailwindcss.com"></Script>
+      <Container pt={72} sx={{ color: "white" }}>
+        <Box
+          component="article"
+          mt="lg"
+          sx={(theme) => ({ color: theme.white })}
+        >
+          <Title sx={{ fontSize: "2.25rem",fontWeight:"bold" }}>{name}</Title>
 
-      <Link href="/posts">
-        <span className="block my-10 text-md underline font-semibold text-emerald-500 cursor-pointer">
-          Go back
-        </span>
-      </Link>
-
-      <Container>
-        <article className="my-10 pb-2 text-white">
-          <h1 className="text-4xl font-bold text-emerald-500">{name}</h1>
-
-          <p className="mt-2 text-white">
-            By <span className="text-emerald-500 font-semibold">{author}</span>
-          </p>
-          <p className="mt-2 text-white">
-            Published On: <span className="text-emerald-500">{date}</span>
-          </p>
-          <section className="mt-8">
+          <Text size="md">
+            By{" "}
+            <Text component="span" weight="bold" color="teal">
+              {author}
+            </Text>
+          </Text>
+          <Text size="md">
+            Published On:{" "}
+            <Text component="span" weight="bolder" color="teal">
+              {date}
+            </Text>
+          </Text>
+          <Box mt={8} sx={{minHeight:"50vh"}}>
             {props.blocks?.map((block, index) => {
               return <div key={index}>{renderBlock(block)}</div>;
             })}
-          </section>
-        </article>
-      </Container>
+          </Box>
+        </Box>
 
-      <div className="w-full flex items-center justify-center">
-        <button className="bg-primary hover:bg-primary/70 text-white rounded-full px-6 py-2 cursor-pointer">
-          <Link href="/posts">
-            <span>Back to posts</span>
+        <Box
+          my="2rem"
+          sx={{
+            outline: "2px solid lightgray",
+            width: "fit-content",
+            borderRadius: "100vmax",
+            padding: "0.5em 1.5em",
+            cursor: "pointer",
+          }}
+        >
+          <Link href="/feed">
+            <Text weight="bolder" size="lg">
+              Back to posts
+            </Text>
           </Link>
-        </button>
-      </div>
+        </Box>
+      </Container>
     </>
   );
 }
