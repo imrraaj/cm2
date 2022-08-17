@@ -20,12 +20,12 @@ export default function Card(props) {
 
   const { theme } = useStyles();
   return (
-    <div class={styles.wrapper}>
-      {/* <div class={styles.card}>
+    <div className={styles.wrapper}>
+      {/* <div className={styles.card}>
         <div className={styles.card__div}>
           <HiSpeakerphone color={theme.colors[data.color][0]} />
         </div>
-        <div class={styles.info}>
+        <div className={styles.info}>
           <Text size="xl" weight="bold" mt={7}>
             {data.title}
           </Text>

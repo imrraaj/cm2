@@ -63,12 +63,12 @@ export default function ActionsGrid() {
   const items = mockdata.map((item) => {
     return (
       <Grid.Col key={item.title} className={classes.item} span={12} lg={4}>
-        <div class={styles_.wrapper}>
-          <div class={styles_.card}>
+        <div className={styles_.wrapper}>
+          <div className={styles_.card}>
             <div className={styles_.card__div}>
               <item.icon color={theme.colors[item.color][6]} />
             </div>
-            <div class={styles_.info}>
+            <div className={styles_.info}>
               <Text size="xl" weight="bold" mt={7}>
                 {item.title}
               </Text>
