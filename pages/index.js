@@ -6,6 +6,7 @@ import Collab from "../components/Collab";
 import Faqs from "../components/Faqs";
 
 import { Button, Paper, Text, Group, CloseButton } from "@mantine/core";
+import Card from "../components/Card";
 
 export default function Home() {
 
@@ -67,6 +68,7 @@ export default function Home() {
       <Services />
       <Collab />
       <Faqs />
+      <Card />
     </main>
   );
 }

@@ -6,7 +6,9 @@ import { MdQuestionAnswer } from "react-icons/md";
 import { AiFillProject } from "react-icons/ai";
 
 import styles from "../styles/Services.module.scss";
+import Card from "./Card";
 
+import styles_ from "../styles/Card.module.css";
 const mockdata = [
   {
     title: "AMA",
@@ -30,8 +32,8 @@ const mockdata = [
     title: "Twitter Promotion",
     icon: BsTwitter,
     color: "gray",
-    desc: `We have 2 different services for twitter promotion <br/><br />
-    1. Specific news or information provided by the project will be shared on our twitter handle.<br /> <br />
+    desc: `We have 2 different services for twitter promotion <br/>
+    1. Specific news or information provided by the project will be shared on our twitter handle.<br />
     2. A detailed thread about the project/company will be written and shared on our twitter.`,
   },
   {
@@ -49,21 +51,9 @@ const useStyles = createStyles((theme) => ({
 
   item: {
     display: "flex",
-    padding:0,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    textAlign: "center",
-    borderRadius: theme.radius.md,
-    minHeight: 350,
-    border: "2px solid gray",
-    transform: "scale(0.85)",
-    transition: "box-shadow 150ms ease, transform 500ms ease",
-    position: "relative",
-
-    "&:hover": {
-      transform: "rotateY(180deg) scale(0.85)",
-    },
   },
 }));
 
@@ -73,7 +63,21 @@ export default function ActionsGrid() {
   const items = mockdata.map((item) => {
     return (
       <Grid.Col key={item.title} className={classes.item} span={12} lg={4}>
-        <div className={styles.card}>
+        <div class={styles_.wrapper}>
+          <div class={styles_.card}>
+            <div className={styles_.card__div}>
+              <item.icon color={theme.colors[item.color][6]} />
+            </div>
+            <div class={styles_.info}>
+              <Text size="xl" weight="bold" mt={7}>
+                {item.title}
+              </Text>
+              <p dangerouslySetInnerHTML={{ __html: item.desc }}></p>
+            </div>
+          </div>
+        </div>
+        {/* <Card data={item}/> */}
+        {/* <div className={styles.card}>
           <div className={styles.cardIcon}>
             <item.icon color={theme.colors[item.color][6]} size={64} />
             <Text
@@ -91,7 +95,7 @@ export default function ActionsGrid() {
             dangerouslySetInnerHTML={{ __html: item.desc }}
           >
           </Text>
-        </div>
+        </div> */}
       </Grid.Col>
     );
   });
