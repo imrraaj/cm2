@@ -86,7 +86,7 @@ const useStyles2 = createStyles((theme) => ({
   card: {
     width: "100%",
     position: "relative",
-    backgroundColor: theme.colors.green[0],
+    backgroundColor: theme.colors.yellow[0],
   },
 
   rating: {
@@ -97,7 +97,7 @@ const useStyles2 = createStyles((theme) => ({
   },
 
   title: {
-    color: theme.colors.green[9],
+    color: theme.colors.yellow[9],
     lineBreak: "anywhere",
     fontWeight: "700",
     fontSize: "1.5rem",
@@ -106,7 +106,7 @@ const useStyles2 = createStyles((theme) => ({
   },
   footer: {
     fontWeight: 600,
-    color: theme.colors.green[7],
+    color: theme.colors.yellow[7],
     marginTop: theme.spacing.md,
   },
 }));

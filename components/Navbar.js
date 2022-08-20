@@ -1,10 +1,32 @@
-import { Modal, Transition } from "@mantine/core";
+import { createStyles, Modal, Transition } from "@mantine/core";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaTwitter, FaMediumM, FaTelegramPlane } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 import styles from "../styles/Navbar.module.scss";
 
 import { Button, Paper, Text, Group, CloseButton } from "@mantine/core";
+
+const useStyles = createStyles((theme) => ({
+  title: {
+    fontWeight: 700,
+  },
+
+  social__round: {
+    margin: "1rem",
+    "& > svg": {
+      fontSize: theme.fontSizes.lg * 1.5,
+      color: theme.colors.yellow[6],
+    },
+    "&:hover > svg": {
+      color: theme.colors.yellow[9],
+      cursor: "pointer"
+    }
+  }
+
+}));
+
+
 
 const navbar = {
   logo: "Crypto Maxxis",
@@ -35,6 +57,7 @@ const navbar = {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isContactOpen, SetisContactOpen] = useState(false);
+  const { classes } = useStyles();
 
   return (
     <>
@@ -73,7 +96,7 @@ function Navbar() {
                 setIsOpen(!isOpen);
               }}
             >
-              <Button color="green">Contact</Button>
+              <Button>Contact</Button>
             </li>
           </ul>
           <button
@@ -126,20 +149,20 @@ function Navbar() {
             </Group>
 
             <Group position="left" mt="xs">
+              <Link href="https://t.me/thedeltaw">
+                <div className={classes.social__round}>
+                  <FaTelegramPlane />
+                </div>
+              </Link>
               <Link href="https://google.com">
-                <Button variant="light" size="sm">
+                <div className={classes.social__round}>
                   <FaTwitter />
-                </Button>
+                </div>
               </Link>
               <Link href="https://google.com">
-                <Button variant="light" size="sm">
-                  <FaTelegramPlane />
-                </Button>
-              </Link>
-              <Link href="https://google.com">
-                <Button variant="light" size="sm">
-                  <FaTelegramPlane />
-                </Button>
+                <div className={classes.social__round}>
+                  <MdMail />
+                </div>
               </Link>
             </Group>
           </Paper>

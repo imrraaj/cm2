@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <main style={{ position: "relative" }}>
-      {showCookie && <CookiesBanner />}
+      {/* {showCookie && <CookiesBanner />} */}
       <Banner />
       <Stats />
       <Services />

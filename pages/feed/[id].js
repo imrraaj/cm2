@@ -84,8 +84,8 @@ const renderBlock = (block) => {
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <ul role="list" className="list-disc ml-4">
-          <li className="">
+        <ul role="list">
+          <li>
             <MyCustomText text={value?.rich_text[0]} />
           </li>
         </ul>
@@ -162,13 +162,12 @@ function Post(props) {
       <Head>
         <title>{title}</title>
       </Head>
-      <Container pt={72} sx={{ color: "white" }}>
+      <Container pt={72} sx={{ color: "white", maxWidth: "1024px", margin: "auto" }}>
         <Box
           component="article"
           mt="lg"
-          sx={(theme) => ({ color: theme.white })}
         >
-          <Title sx={{ fontSize: "2.25rem",fontWeight:"bold" }}>{name}</Title>
+          <Title sx={{ marginBlock: "1.25rem", fontSize: "2.25rem", fontWeight: "bold", lineBreak: "anywhere" }}>{name}</Title>
 
           <Text size="md">
             By{" "}
@@ -182,14 +181,14 @@ function Post(props) {
               {date}
             </Text>
           </Text>
-          <Box mt={8} sx={{minHeight:"50vh"}}>
+          <Box mt={8} sx={{ minHeight: "50vh" }}>
             {props.blocks?.map((block, index) => {
               return <div key={index}>{renderBlock(block)}</div>;
             })}
           </Box>
         </Box>
 
-        <Box
+        {/* <Box
           my="2rem"
           sx={{
             outline: "2px solid lightgray",
@@ -204,7 +203,7 @@ function Post(props) {
               Back to posts
             </Text>
           </Link>
-        </Box>
+        </Box> */}
       </Container>
     </>
   );

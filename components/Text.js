@@ -33,6 +33,7 @@ export default function MyCustomText({ text }) {
     );
   }
 
+  console.log({text});
   return (
     <>
       <p

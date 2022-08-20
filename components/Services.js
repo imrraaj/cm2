@@ -5,9 +5,6 @@ import { HiSpeakerphone } from "react-icons/hi";
 import { MdQuestionAnswer } from "react-icons/md";
 import { AiFillProject } from "react-icons/ai";
 
-import styles from "../styles/Services.module.scss";
-import Card from "./Card";
-
 import styles_ from "../styles/Card.module.css";
 const mockdata = [
   {
@@ -32,9 +29,12 @@ const mockdata = [
     title: "Twitter Promotion",
     icon: BsTwitter,
     color: "gray",
-    desc: `We have 2 different services for twitter promotion <br/>
-    1. Specific news or information provided by the project will be shared on our twitter handle.<br />
-    2. A detailed thread about the project/company will be written and shared on our twitter.`,
+    desc: `We provide 2 different services. <br/>
+    <ul style="padding:0 0 0 10px">
+    <li>Tweet on specific news provided by the project</li>
+    <li>Detailed thread about the project/company</li>
+    </ul>
+`,
   },
   {
     title: "KOL services",

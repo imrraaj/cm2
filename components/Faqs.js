@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Container, Title, Text, Box, Button, Accordion, Group } from "@mantine/core";
+import { Container, Title, Text, Box, Button, Accordion, Group, createStyles } from "@mantine/core";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { MdCloseFullscreen } from "react-icons/md";
 import Collapsible from "react-collapsible";
-import { FaTelegramPlane } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 import styles from "../styles/Faqitem.module.scss";
 import Link from "next/link";
 
@@ -41,9 +41,25 @@ export default function Faqs() {
   );
 }
 
+
+const useStyles = createStyles((theme) => ({
+  social: {
+    margin: "1rem",
+    "& > *": {
+      color: theme.colors.yellow[0],
+    },
+    "&:hover > *": {
+      color: theme.colors.yellow[7],
+      cursor: "pointer"
+    }
+  }
+
+}));
+
+
 function Faqitem({ question, answer, link }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { classes } = useStyles();
   return (
     <div className={styles.container}>
       <Collapsible
@@ -67,12 +83,10 @@ function Faqitem({ question, answer, link }) {
           </Text>
           {link && (
             <Link href={link} passHref>
-              <Text color="green">
-                <Group align="center">
-                  <FaTelegramPlane />
-                  Telegram
-                </Group>
-              </Text>
+              <Group align="center" className={classes.social} >
+                <MdMail />
+                <p>Mail</p>
+              </Group>
             </Link>
           )}
         </Box>

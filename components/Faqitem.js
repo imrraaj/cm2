@@ -24,7 +24,7 @@ function Faqitem({ question, answer }) {
         onClose={() => setIsOpen(false)}
       >
         <Box my="0.75em">
-          <Text color="hsl(0 0% 80%)" size="md">
+          <Text size="md">
             {answer}
           </Text>
         </Box>
