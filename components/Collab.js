@@ -8,7 +8,7 @@ const data = [
   { src: "/toko.png", alt: "Toko Crypto" },
   { src: "/coinw.svg", alt: "Coinw" },
   { src: "/kommunitas.png", alt: "Kommunitas", strech: false },
-  { src: "/RG.png", alt: "Rainmaker Games", strech: false },
+  { src: "/rg.png", alt: "Rainmaker Games", strech: false },
   { src: "/bombcrypto.png", alt: "Bomb Crypto" },
   { src: "/angelic_logo_white.png", alt: "Angelic" },
   { src: "/orbitau.png", alt: "Orbitau" },
