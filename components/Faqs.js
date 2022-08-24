@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Container, Title, Text, Box, Button, Accordion, Group, createStyles } from "@mantine/core";
+import {
+  Container,
+  Title,
+  Text,
+  Box,
+  Button,
+  Accordion,
+  Group,
+  createStyles,
+} from "@mantine/core";
 import { RiArrowUpDownLine } from "react-icons/ri";
 import { MdCloseFullscreen } from "react-icons/md";
 import Collapsible from "react-collapsible";
@@ -23,9 +32,23 @@ const faqs = [
   {
     question: "How to contact us?",
     answer: ``,
-    link: "https://t.me/thedeltaw",
+    link: "mailto:cryptomaxxis@gmail.com",
   },
 ];
+
+const useStyles = createStyles((theme) => ({
+  social: {
+    margin: "1rem",
+    "& > *": {
+      color: theme.colors["brand"][0],
+    },
+    "&:hover > *": {
+      color: theme.colors["brand"][3],
+      cursor: "pointer",
+    },
+  },
+}));
+
 export default function Faqs() {
   return (
     <Container pt={64} pb={32} id="faqs">
@@ -34,28 +57,17 @@ export default function Faqs() {
           FAQs
         </Title>
         {faqs.map((item, _index) => (
-          <Faqitem key={_index} question={item.question} answer={item.answer} link={item.link} />
+          <Faqitem
+            key={_index}
+            question={item.question}
+            answer={item.answer}
+            link={item.link}
+          />
         ))}
       </div>
     </Container>
   );
 }
-
-
-const useStyles = createStyles((theme) => ({
-  social: {
-    margin: "1rem",
-    "& > *": {
-      color: theme.colors.yellow[0],
-    },
-    "&:hover > *": {
-      color: theme.colors.yellow[7],
-      cursor: "pointer"
-    }
-  }
-
-}));
-
 
 function Faqitem({ question, answer, link }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +95,7 @@ function Faqitem({ question, answer, link }) {
           </Text>
           {link && (
             <Link href={link} passHref>
-              <Group align="center" className={classes.social} >
+              <Group align="center" className={classes.social}>
                 <MdMail />
                 <p>Mail</p>
               </Group>

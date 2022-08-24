@@ -1,4 +1,4 @@
-@use 'abstract' as *;
+@use "abstract" as *;
 
 .header {
   position: fixed;
@@ -13,6 +13,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   @media (max-width: 866px) and (min-width: 650px) {
     flex-direction: column;
@@ -54,11 +55,12 @@
 
     &:hover {
       color: var(--clr-neutral-500);
+      text-decoration: underline 2px var(--clr-primary-300);
     }
   }
 }
 
-.ctabutton>a {
+.ctabutton > a {
   border-radius: 0.5em;
   padding: 0.25em 1rem;
   color: var(--clr-primary-300);
@@ -70,7 +72,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .ctabutton>a {
+  .ctabutton > a {
     padding: 0;
     background-color: transparent;
   }
@@ -95,7 +97,7 @@
     transition: left 300ms ease-in;
   }
 
-  .nav__link>a {
+  .nav__link > a {
     color: var(--clr-primary-300);
   }
 

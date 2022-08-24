@@ -1,4 +1,4 @@
-import { Container, Grid, Title } from "@mantine/core";
+import { Container, Grid, Text, Title } from "@mantine/core";
 import Image from "next/image";
 
 const data = [
@@ -41,7 +41,7 @@ export default function Collab() {
               justifyContent: "center",
               alignItems: "center",
               border: "1px solid gray",
-              borderRadius:"5px" ,
+              borderRadius: "5px",
 
               "&:hover": {
                 filter: "grayscale(0%)",
@@ -58,6 +58,16 @@ export default function Collab() {
           </Grid.Col>
         ))}
       </Grid>
+      <Text
+        align="center"
+        my={32}
+        color="white"
+        underline
+        weight="bolder"
+        size="lg"
+      >
+        and many more
+      </Text>
     </Container>
   );
 }

@@ -17,6 +17,20 @@ function MyApp({ Component, pageProps }) {
       <MantineProvider
         theme={{
           primaryColor: "yellow",
+          colors: {
+            "primary-yellow": "#c6a62d",
+            brand: [
+              "#C6A62D",
+              "#BC9E2B",
+              "#B29529",
+              "#A88D26",
+              "#9E8524",
+              "#957D22",
+              "#8B741F",
+              "#816C1D",
+              "#77641B",
+            ],
+          },
           fontFamily: "Inter, sans-serif",
         }}
       >

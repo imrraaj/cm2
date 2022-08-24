@@ -5,14 +5,15 @@ import { createStyles, Avatar, Group } from "@mantine/core";
 import { BsFillPersonLinesFill, BsCalendarDate } from "react-icons/bs";
 import { IconBookmark, IconHeart, IconShare } from "@tabler/icons";
 import { Card, Image, ActionIcon, Badge, Center } from "@mantine/core";
+import Head from "next/head";
 
 export const getStaticProps = async () => {
   try {
     const database = await getDatabase(process.env.NOTION_DATABASE);
-    console.log("making reqeust from posts/ ");
+    const db = database.filter((d) => d.properties.published.checkbox === true);
     return {
       props: {
-        posts: database,
+        posts: db,
       },
       revalidate: 60,
     };
@@ -40,43 +41,48 @@ function Home({ posts }) {
     );
   }
   return (
-    <Container pt={64}>
-      <Box my={32}>
-        <Text size={64} weight="bold" mb={4} color="white">
-          Feed
-        </Text>
-        <Text weight="bolder" size="xl" color="white">
-          I write about development, design, React, CSS, animation and more!
-        </Text>
-      </Box>
+    <>
+      <Head>
+        <title>Feed - CryptoMaxxis </title>
+      </Head>
+      <Container pt={64}>
+        <Box my={32}>
+          <Text size={64} weight="bold" mb={4} color="white">
+            Feed
+          </Text>
+          <Text weight="bolder" size="xl" color="white">
+            I write about development, design, React, CSS, animation and more!
+          </Text>
+        </Box>
 
-      <Grid>
-        {posts.map((post) => {
-          const { name, author, date, description, media } = post?.properties;
-          const data = {
-            avatar:
-              media?.files?.file?.url ||
-              "https://images.unsplash.com/photo-1626202378343-1e8b2a828a78",
-            title: name,
-            date,
-            description,
-            id: post.id,
-          };
+        <Grid>
+          {posts.map((post) => {
+            const { name, author, date, description, media } = post?.properties;
+            const data = {
+              avatar:
+                media?.files?.file?.url ||
+                "https://images.unsplash.com/photo-1626202378343-1e8b2a828a78",
+              title: name,
+              date,
+              description,
+              id: post.id,
+            };
 
-          return (
-            <Grid.Col
-              key={"posts/" + post.id}
-              span={12}
-              lg={4}
-              style={{ cursor: "pointer" }}
-              my={32}
-            >
-              <ArticleCard {...data} />
-            </Grid.Col>
-          );
-        })}
-      </Grid>
-    </Container>
+            return (
+              <Grid.Col
+                key={"posts/" + post.id}
+                span={12}
+                lg={4}
+                style={{ cursor: "pointer" }}
+                my={32}
+              >
+                <ArticleCard {...data} />
+              </Grid.Col>
+            );
+          })}
+        </Grid>
+      </Container>
+    </>
   );
 }
 
@@ -97,7 +103,7 @@ const useStyles2 = createStyles((theme) => ({
   },
 
   title: {
-    color: theme.colors.yellow[9],
+    color: theme.colors["brand"][7],
     lineBreak: "anywhere",
     fontWeight: "700",
     fontSize: "1.5rem",
@@ -106,7 +112,7 @@ const useStyles2 = createStyles((theme) => ({
   },
   footer: {
     fontWeight: 600,
-    color: theme.colors.yellow[7],
+    color: theme.colors["brand"][2],
     marginTop: theme.spacing.md,
   },
 }));
@@ -117,7 +123,11 @@ export function ArticleCard({ avatar, title, date, author, description, id }) {
     <Link href={"feed/" + id}>
       <Card radius="md" className={classes.card}>
         <Card.Section>
-          <Image src={avatar} height={180} alt={title?.title[0]?.plain_text || ""} />
+          <Image
+            src={avatar}
+            height={180}
+            alt={title?.title[0]?.plain_text || ""}
+          />
         </Card.Section>
 
         <Text className={classes.title}>

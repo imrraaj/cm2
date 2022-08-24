@@ -10,16 +10,17 @@ import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   hero: {
+    paddingTop: "3rem",
     position: "relative",
     backgroundImage: "url(/bg.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    minHeight: "80vh",
+    minHeight: "700px",
     backgroundAttachment: "fixed",
   },
 
   container: {
-    height: 700,
+    minHeight: 700,
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
@@ -54,6 +55,10 @@ const useStyles = createStyles((theme) => ({
 
   control: {
     marginTop: theme.spacing.xl * 1.5,
+    backgroundColor: theme.colors["brand"][0],
+    "&:hover": {
+      backgroundColor: theme.colors["brand"][5],
+    },
   },
 }));
 
@@ -69,16 +74,18 @@ export default function HeroContentLeft() {
       />
       <Container className={classes.container}>
         <Title className={classes.title}>
-          One of the biggest community of cryptocurrency investors based in Asia
+          One of the largest cryptocurrency investors community based in Asia
         </Title>
         <Text className={classes.description} size="xl" mt="xl">
-          We&apos;ve worked with some of the biggest crypto projects, exchange and
-          VCs. We provide multiple services related to marketing and promotion.
+          {`We've worked with some of the biggest crypto projects, 
+          exchange
+          and VCs. We provide multiple services related to marketing and
+          promotion.`}
         </Text>
 
-        <Link href="https://t.me/thedeltaw" passHref>
+        <Link href="https://t.me/crypto_maxxis" passHref>
           <Button component="a" size="lg" className={classes.control}>
-            Contact
+            Join Us
           </Button>
         </Link>
       </Container>

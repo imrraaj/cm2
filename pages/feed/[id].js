@@ -1,12 +1,9 @@
 import { getPage, getBlock } from "../../utils/notion";
-import Script from "next/script";
-
 import MyCustomText from "../../components/Text";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Container, Title, Text, Box, Group, Button } from "@mantine/core";
+import { Container, Title, Text, Box } from "@mantine/core";
 
 export const getStaticPaths = async () => {
   return {
@@ -22,6 +19,7 @@ export const getStaticProps = async (context) => {
   const page = await getPage(id);
   const blocks = await getBlock(id);
 
+  console.log(page);
   if (page) {
     return {
       props: {
@@ -142,7 +140,6 @@ function Post(props) {
     router.push("/");
     return;
   }
-
   let title, name, date, author;
   if (props.post?.properties?.name?.title[0]?.plain_text) {
     title = props.post.properties.name.title[0].plain_text;
@@ -162,22 +159,31 @@ function Post(props) {
       <Head>
         <title>{title}</title>
       </Head>
-      <Container pt={72} sx={{ color: "white", maxWidth: "1024px", margin: "auto" }}>
-        <Box
-          component="article"
-          mt="lg"
-        >
-          <Title sx={{ marginBlock: "1.25rem", fontSize: "2.25rem", fontWeight: "bold", lineBreak: "anywhere" }}>{name}</Title>
+      <Container
+        pt={72}
+        sx={{ color: "white", maxWidth: "1024px", margin: "auto" }}
+      >
+        <Box component="article" mt="lg">
+          <Title
+            sx={{
+              marginBlock: "1.25rem",
+              fontSize: "2.25rem",
+              fontWeight: "bold",
+              lineBreak: "anywhere",
+            }}
+          >
+            {name}
+          </Title>
 
           <Text size="md">
             By{" "}
-            <Text component="span" weight="bold" color="teal">
+            <Text component="span" weight="bold" color="brand">
               {author}
             </Text>
           </Text>
           <Text size="md">
             Published On:{" "}
-            <Text component="span" weight="bolder" color="teal">
+            <Text component="span" weight="bolder" color="brand">
               {date}
             </Text>
           </Text>
@@ -187,23 +193,6 @@ function Post(props) {
             })}
           </Box>
         </Box>
-
-        {/* <Box
-          my="2rem"
-          sx={{
-            outline: "2px solid lightgray",
-            width: "fit-content",
-            borderRadius: "100vmax",
-            padding: "0.5em 1.5em",
-            cursor: "pointer",
-          }}
-        >
-          <Link href="/feed">
-            <Text weight="bolder" size="lg">
-              Back to posts
-            </Text>
-          </Link>
-        </Box> */}
       </Container>
     </>
   );

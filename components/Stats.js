@@ -9,9 +9,7 @@ const data = [
 const useStyles2 = createStyles((theme) => ({
   root: {
     display: "flex",
-    backgroundImage: `linear-gradient(-60deg, ${
-      theme.colors[theme.primaryColor][4]
-    } 0%, ${theme.colors[theme.primaryColor][7]} 100%)`,
+    backgroundImage: `linear-gradient(-60deg, #BC9E2B 0%, #957D22 100%)`,
     marginBlock: "1.5rem",
     paddingInline: theme.spacing.lg * 1.5,
     paddingBlock: theme.spacing.lg * 2,

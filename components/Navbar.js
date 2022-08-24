@@ -6,27 +6,31 @@ import { MdMail } from "react-icons/md";
 import styles from "../styles/Navbar.module.scss";
 
 import { Button, Paper, Text, Group, CloseButton } from "@mantine/core";
+import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
   title: {
     fontWeight: 700,
+  },
+  ctaBtn: {
+    backgroundColor: theme.colors["brand"][0],
+    "&:hover": {
+      backgroundColor: theme.colors["brand"][5],
+    },
   },
 
   social__round: {
     margin: "1rem",
     "& > svg": {
       fontSize: theme.fontSizes.lg * 1.5,
-      color: theme.colors.yellow[6],
+      color: theme.colors["brand"][0],
     },
     "&:hover > svg": {
-      color: theme.colors.yellow[9],
-      cursor: "pointer"
-    }
-  }
-
+      color: theme.colors["brand"][3],
+      cursor: "pointer",
+    },
+  },
 }));
-
-
 
 const navbar = {
   logo: "Crypto Maxxis",
@@ -64,7 +68,17 @@ function Navbar() {
       <header className={styles.header}>
         <nav className={`container ${styles.nav}`}>
           <div className={styles.logo}>
-            <Link href="/">{navbar.logo}</Link>
+            <Link href="/">
+              <a>
+                <Image
+                  src="/logo.png"
+                  alt="Crypto Maxxis Logo"
+                  width={"125%"}
+                  height="100%"
+                  objectFit="contain"
+                />
+              </a>
+            </Link>
           </div>
 
           <ul
@@ -74,19 +88,21 @@ function Navbar() {
                 : styles.primary__navigation
             }
           >
-            {navbar.links.map((item, __index) =>
-              item.text !== "Contact" &&
-              <li
-                key={__index}
-                className={styles.nav__link}
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              >
-                <Link href={item.url} scroll={false}>
-                  {item.text}
-                </Link>
-              </li>
+            {navbar.links.map(
+              (item, __index) =>
+                item.text !== "Contact" && (
+                  <li
+                    key={__index}
+                    className={styles.nav__link}
+                    onClick={() => {
+                      setIsOpen(!isOpen);
+                    }}
+                  >
+                    <Link href={item.url} scroll={false}>
+                      {item.text}
+                    </Link>
+                  </li>
+                )
             )}
 
             <li
@@ -96,7 +112,7 @@ function Navbar() {
                 setIsOpen(!isOpen);
               }}
             >
-              <Button>Contact</Button>
+              <Button className={classes.ctaBtn}>Contact</Button>
             </li>
           </ul>
           <button
@@ -120,54 +136,72 @@ function Navbar() {
               />
             </svg>
           </button>
+
+          <Transition
+            mounted={isContactOpen}
+            transition="fade"
+            duration={400}
+            timingFunction="ease"
+          >
+            {(styles) => (
+              <Paper
+                withBorder
+                p="md"
+                sx={{
+                  "@media (min-width:500px)": {
+                    ...styles,
+                    zIndex: 20,
+                    position: "fixed",
+                    top: "6.5rem",
+                    right: "1rem",
+                  },
+                  "@media (max-width:500px)": {
+                    ...styles,
+                    zIndex: 20,
+                    position: "fixed",
+                    border: "2px solid lime",
+                    minWidth: "max-content",
+                    // marginBlock: "50%",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%,-50%)",
+                    zIndex: 10,
+                    boxShadow: "0 0 0 100vmax black",
+                    isolation: "isolate",
+                  },
+                }}
+              >
+                <Group position="apart">
+                  <Text size="lg" weight="bold">
+                    Contact here
+                  </Text>
+                  <CloseButton
+                    onClick={() => SetisContactOpen(!isContactOpen)}
+                  />
+                </Group>
+
+                <Group position="left" mt="xs">
+                  <Link href="https://t.me/KryptoNite_02">
+                    <div className={classes.social__round}>
+                      <FaTelegramPlane />
+                    </div>
+                  </Link>
+                  <Link href="https://twitter.com/crypto_maxxis">
+                    <div className={classes.social__round}>
+                      <FaTwitter />
+                    </div>
+                  </Link>
+                  <Link href="mailto:cryptomaxxis@gmail.com">
+                    <div className={classes.social__round}>
+                      <MdMail />
+                    </div>
+                  </Link>
+                </Group>
+              </Paper>
+            )}
+          </Transition>
         </nav>
       </header>
-
-      <Transition
-        mounted={isContactOpen}
-        transition="fade"
-        duration={400}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Paper
-            withBorder
-            p="md"
-            style={{
-              ...styles,
-              zIndex: 20,
-              position: "fixed",
-              top: "4rem",
-              right: "0.5rem",
-            }}
-          >
-            <Group position="apart">
-              <Text size="lg" weight="bold">
-                Contact here
-              </Text>
-              <CloseButton onClick={() => SetisContactOpen(!isContactOpen)} />
-            </Group>
-
-            <Group position="left" mt="xs">
-              <Link href="https://t.me/thedeltaw">
-                <div className={classes.social__round}>
-                  <FaTelegramPlane />
-                </div>
-              </Link>
-              <Link href="https://google.com">
-                <div className={classes.social__round}>
-                  <FaTwitter />
-                </div>
-              </Link>
-              <Link href="https://google.com">
-                <div className={classes.social__round}>
-                  <MdMail />
-                </div>
-              </Link>
-            </Group>
-          </Paper>
-        )}
-      </Transition>
     </>
   );
 }
