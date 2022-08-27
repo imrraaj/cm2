@@ -4,11 +4,11 @@
   position: fixed;
   width: 100%;
   z-index: 100000;
+  background-color: rgba($color: #000000, $alpha: 0.4);
 }
 
 .nav {
   font-family: var(--fam-primary);
-  padding-block: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -23,13 +23,9 @@
 }
 
 .logo {
-  padding: 0.25em 0;
   font-family: var(--fam-handwriting);
-
-  a {
-    color: var(--clr-neutral-200);
-    font-size: var(--ff-big-400);
-  }
+  display: grid;
+  place-content: center;
 }
 
 .primary__navigation {

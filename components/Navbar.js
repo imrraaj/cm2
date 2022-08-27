@@ -1,6 +1,6 @@
 import { createStyles, Modal, Transition } from "@mantine/core";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaTwitter, FaMediumM, FaTelegramPlane } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import styles from "../styles/Navbar.module.scss";
@@ -40,8 +40,8 @@ const navbar = {
       url: "/#home",
     },
     {
-      text: "Stats",
-      url: "/#stats",
+      text: "Statistics",
+      url: "/#statistics",
     },
     {
       text: "Services",
@@ -74,7 +74,7 @@ function Navbar() {
                   src="/logo.png"
                   alt="Crypto Maxxis Logo"
                   width={"125%"}
-                  height="100%"
+                  height="65%"
                   objectFit="contain"
                 />
               </a>
@@ -159,9 +159,8 @@ function Navbar() {
                     ...styles,
                     zIndex: 20,
                     position: "fixed",
-                    border: "2px solid lime",
+                    border: "2px solid #c6a62d",
                     minWidth: "max-content",
-                    // marginBlock: "50%",
                     top: "50%",
                     left: "50%",
                     transform: "translate(-50%,-50%)",

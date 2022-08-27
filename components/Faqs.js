@@ -19,10 +19,10 @@ import Link from "next/link";
 const faqs = [
   {
     question: "Why us?",
-    answer: `If you're looking for a professional team with experience at what they do then crypto maxxis is the choice for you. Our services have been chosen by lots of top tier projects and exchanges. We're responsive and also considerate of projects' needs.`,
+    answer: `If you're looking for a professional team with experience at what they do then crypto maxxis is the choice for you. Our services have been chosen by lots of top tier projects and exchanges. We're responsive and also considerate of project's needs.`,
   },
   {
-    question: "Whats AMA? ",
+    question: "What is AMA? ",
     answer: `The acronym AMA means "Ask Me Anything". An AMA is a type of informal interview in which the interviewee is open to questions from the public.`,
   },
   {

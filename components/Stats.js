@@ -66,7 +66,7 @@ export function StatsGroup() {
     </div>
   ));
   return (
-    <Container pt={64} id="stats">
+    <Container pt={64} id="statistics">
       <div className={classes.root}>{stats}</div>
     </Container>
   );
