@@ -164,22 +164,15 @@ function Post(props) {
         sx={{ color: "white", maxWidth: "1024px", margin: "auto" }}
       >
         <Box component="article" mt="lg">
-          <Title
+          <Text
             sx={{
               marginBlock: "1.25rem",
-              fontSize: "2.25rem",
+              fontSize: "2.5rem",
               fontWeight: "bold",
               lineBreak: "anywhere",
             }}
           >
             {name}
-          </Title>
-
-          <Text size="md">
-            By{" "}
-            <Text component="span" weight="bold" color="brand">
-              {author}
-            </Text>
           </Text>
           <Text size="md">
             Published On:{" "}

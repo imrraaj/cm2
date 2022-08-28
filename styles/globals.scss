@@ -3,22 +3,50 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600&family=Poppins:wght@400;600&family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Montserrat:wght@700&family=Mukta&family=Titillium+Web:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400&family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+
+
+
+
 :root {
-  @each $size, $shades in $colors {
-    @each $shade, $value in $shades {
+
+  @each $size,
+  $shades in $colors {
+
+    @each $shade,
+    $value in $shades {
       --clr-#{$size}-#{$shade}: #{$value};
     }
   }
 
-  @each $size, $scales in $type-scale {
-    @each $shade, $value in $scales {
+  @each $size,
+  $scales in $type-scale {
+
+    @each $shade,
+    $value in $scales {
       --ff-#{$size}-#{$shade}: #{$value};
     }
   }
 
-  --fam-primary: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
-  --fam-secondary: 'Inter', sans-serif;
-  --fam-handwriting: 'Satisfy', cursive;
+  --fam-primary: 'Quicksand',
+  Tahoma,
+  Geneva,
+  Verdana,
+  sans-serif;
+  --fam-secondary: 'Inter',
+  sans-serif;
+  --fam-handwriting: 'Satisfy',
+  cursive;
 
   --clr-body: #171a23;
   // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -69,6 +97,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--ff-secondary);
+  // font-weight: 500;
 }
 
 /* A elements that don't have a class get default styles */
@@ -112,6 +141,7 @@ body {
   background-color: var(--clr-body);
   scroll-behavior: smooth;
 }
+
 body {
   font-family: var(--fam-secondary);
 }
@@ -200,14 +230,17 @@ body {
   0% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
   }
 }
+
 @keyframes nprogress-spinner {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

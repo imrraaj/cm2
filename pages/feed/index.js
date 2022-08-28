@@ -43,14 +43,14 @@ function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>Feed - CryptoMaxxis </title>
+        <title>Feed - CryptoMaxxis</title>
       </Head>
       <Container pt={64}>
         <Box my={32}>
           <Text size={64} weight="bold" mb={4} color="white">
             Feed
           </Text>
-          <Text weight="bolder" size="xl" color="white">
+          <Text weight="normal" size="xl" color="white">
             I write about development, design, React, CSS, animation and more!
           </Text>
         </Box>

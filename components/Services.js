@@ -86,9 +86,6 @@ export default function ActionsGrid() {
               </Text>
             </div>
             <div className={styles_.info}>
-              <Text size="xl" weight="bold" mt={7}>
-                {item.title}
-              </Text>
               <item.desc />
             </div>
           </div>
@@ -100,8 +97,8 @@ export default function ActionsGrid() {
   return (
     <>
       <Container pt={64} pb={32} id="services" sx={{ position: "relative" }}>
-        <Title align="center" mb={32} style={{ color: "white" }}>
-          Services
+        <Title align="center" mb={32} style={{ color: "white", letterSpacing: "1px" }}>
+          SERVICES
         </Title>
         <Grid justify="center" style={{ overflow: "hidden" }}>
           {items}

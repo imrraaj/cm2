@@ -32,19 +32,25 @@ const useStyles = createStyles((theme) => ({
 
   title: {
     color: theme.white,
-    fontSize: 60,
+    fontSize: 50,
     fontWeight: 900,
     lineHeight: 1.1,
+    textTransform: "uppercase",
+    letterSpacing: "1px",
+    width: "75%",
 
     [theme.fn.smallerThan("xs")]: {
-      fontSize: 40,
+      fontSize: 32,
       lineHeight: 1.3,
+      width: "100%",
+      // letterSpacing: "1px",
+
     },
   },
 
   description: {
     color: theme.white,
-    fontWeight: 600,
+    // fontWeight: 600,
     maxWidth: 600,
 
     [theme.fn.smallerThan("sm")]: {
@@ -78,8 +84,7 @@ export default function HeroContentLeft() {
         </Title>
         <Text className={classes.description} size="xl" mt="xl">
           {`We've worked with some of the biggest crypto projects, 
-          exchange
-          and VCs. We provide multiple services related to marketing and
+          exchanges and VCs. We provide multiple services related to marketing and
           promotion.`}
         </Text>
 

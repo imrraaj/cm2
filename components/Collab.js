@@ -20,7 +20,7 @@ export default function Collab() {
   return (
     <Container my={32}>
       <Title align="center" mb={32} style={{ color: "white" }}>
-        Clients
+        CLIENTS
       </Title>
       <Grid
         grow

@@ -4,7 +4,7 @@
   position: fixed;
   width: 100%;
   z-index: 100000;
-  background-color: rgba($color: #000000, $alpha: 0.4);
+  background-color: var(--clr-body);
 }
 
 .nav {
@@ -56,7 +56,7 @@
   }
 }
 
-.ctabutton > a {
+.ctabutton>a {
   border-radius: 0.5em;
   padding: 0.25em 1rem;
   color: var(--clr-primary-300);
@@ -68,7 +68,7 @@
 }
 
 @media screen and (max-width: 650px) {
-  .ctabutton > a {
+  .ctabutton>a {
     padding: 0;
     background-color: transparent;
   }
@@ -93,7 +93,7 @@
     transition: left 300ms ease-in;
   }
 
-  .nav__link > a {
+  .nav__link>a {
     color: var(--clr-primary-300);
   }
 
