@@ -7,7 +7,7 @@ import {
   Text,
 } from "@mantine/core";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 const useStyles = createStyles((theme) => ({
   hero: {
     paddingTop: "3rem",
@@ -44,7 +44,6 @@ const useStyles = createStyles((theme) => ({
       lineHeight: 1.3,
       width: "100%",
       // letterSpacing: "1px",
-
     },
   },
 
@@ -79,20 +78,27 @@ export default function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title}>
-          One of the largest cryptocurrency investors community based in Asia
-        </Title>
-        <Text className={classes.description} size="xl" mt="xl">
-          {`We've worked with some of the biggest crypto projects, 
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <Title className={classes.title}>
+            One of the largest cryptocurrency investors community based in Asia
+          </Title>
+          <Text className={classes.description} size="xl" mt="xl">
+            {`We've worked with some of the biggest crypto projects, 
           exchanges and VCs. We provide multiple services related to marketing and
           promotion.`}
-        </Text>
+          </Text>
 
-        <Link href="https://t.me/crypto_maxxis" passHref>
-          <Button component="a" size="lg" className={classes.control}>
-            Join Us
-          </Button>
-        </Link>
+          <Link href="https://t.me/crypto_maxxis" passHref>
+            <Button component="a" size="lg" className={classes.control}>
+              Join Us
+            </Button>
+          </Link>
+        </motion.div>
       </Container>
     </div>
   );

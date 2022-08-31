@@ -1,9 +1,11 @@
 import { createStyles, Text, Container } from "@mantine/core";
+import { animate, motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
 const data = [
-  { title: "Members in the community", num: "100000+" },
-  { title: "Total rewards distributed", num: "$15000+" },
-  { title: "AMAs Completed", num: "150+" },
+  { title: "Members in the community", num: 100000 },
+  { title: "Total rewards distributed", num: 15000 },
+  { title: "AMAs Completed", num: 150 },
 ];
 
 const useStyles2 = createStyles((theme) => ({
@@ -61,7 +63,11 @@ export function StatsGroup() {
 
   const stats = data.map((stat) => (
     <div key={stat.title} className={classes.stat}>
-      <Text className={classes.count}>{stat.num}</Text>
+      <Text className={classes.count}>
+        <Counter from={0} to={stat.num} />
+        {`+`}
+      </Text>
+
       <Text className={classes.title}>{stat.title}</Text>
     </div>
   ));
@@ -74,4 +80,29 @@ export function StatsGroup() {
 
 export default function Stats() {
   return <StatsGroup />;
+}
+
+function Counter({ from, to }) {
+  const nodeRef = useRef();
+
+  useEffect(() => {
+    const node = nodeRef.current;
+
+    const controls = animate(from, to, {
+      duration: 4,
+      onUpdate(value) {
+        node.textContent = value.toFixed(0);
+      },
+    });
+
+    return () => controls.stop();
+  }, [from, to]);
+
+  return (
+    <motion.span
+      ref={nodeRef}
+      viewport={{ once: false }}
+      whileInView={{ opacity: 1 }}
+    />
+  );
 }
