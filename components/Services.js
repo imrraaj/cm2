@@ -12,7 +12,7 @@ const mockdata = [
     icon: MdQuestionAnswer,
     color: "violet",
     desc: function () {
-      return "We host text/video AMA sessions. AMAs help projects to reach a wider audience and also act as an introductory medium for the project to our community.";
+      return "Host text/video AMA sessions. AMAs help projects to reach a wider audience and also act as an introductory medium for the project to our community.";
     },
   },
   {
@@ -20,21 +20,21 @@ const mockdata = [
     icon: HiSpeakerphone,
     color: "green",
     desc: function () {
-      return "We'll share the important news and specific requested posts for the predetermined time.";
+      return "Share the important news and specific requested posts for the predetermined time.";
     },
   },
   {
     title: "Pin post",
     icon: BsPinAngleFill,
-    color: "blue",
+    color: "gray",
     desc: function () {
-      return "We will share specific post requested by the project in our telegram group and channel.";
+      return "Share specific post requested by the project in our telegram group and channel.";
     },
   },
   {
     title: "Twitter Promotion",
     icon: BsTwitter,
-    color: "gray",
+    color: "blue",
     desc: function () {
       return (
         <div>
@@ -53,7 +53,7 @@ const mockdata = [
     icon: AiFillProject,
     color: "teal",
     desc: function () {
-      return "We'll take free/paid allocation of projects of our interest and provide them marketing and promotion services.";
+      return "Take free/paid allocation of projects of our interest and provide them marketing and promotion services.";
     },
   },
 ];
@@ -97,7 +97,11 @@ export default function ActionsGrid() {
   return (
     <>
       <Container pt={64} pb={32} id="services" sx={{ position: "relative" }}>
-        <Title align="center" mb={32} style={{ color: "white", letterSpacing: "1px" }}>
+        <Title
+          align="center"
+          mb={32}
+          style={{ color: "white", letterSpacing: "1px" }}
+        >
           SERVICES
         </Title>
         <Grid justify="center" style={{ overflow: "hidden" }}>

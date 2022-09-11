@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 
 const data = [
   { title: "Members in the community", num: 100000 },
-  { title: "Total rewards distributed", num: 15000 },
+  { title: "Total rewards distributed", num: 15000, curr: true },
   { title: "AMAs Completed", num: 150 },
 ];
 
@@ -65,9 +65,9 @@ export function StatsGroup() {
     <div key={stat.title} className={classes.stat}>
       <Text className={classes.count}>
         <Counter from={0} to={stat.num} />
+        {stat.curr ? " $" : ""}
         {`+`}
       </Text>
-
       <Text className={classes.title}>{stat.title}</Text>
     </div>
   ));
@@ -89,10 +89,11 @@ function Counter({ from, to }) {
     const node = nodeRef.current;
 
     const controls = animate(from, to, {
-      duration: 4,
+      duration: 5,
       onUpdate(value) {
-        node.textContent = value.toFixed(0);
+        node.textContent = value.toFixed(0) || 10;
       },
+      delay: 5,
     });
 
     return () => controls.stop();
@@ -101,7 +102,7 @@ function Counter({ from, to }) {
   return (
     <motion.span
       ref={nodeRef}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       whileInView={{ opacity: 1 }}
     />
   );

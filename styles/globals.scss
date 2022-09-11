@@ -1,55 +1,26 @@
-@use 'abstract' as *;
-
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@400;600&family=Poppins:wght@400;600&family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Montserrat:wght@700&family=Mukta&family=Titillium+Web:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400&family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
-
-
-
+@use "abstract" as *;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap");
 
 :root {
-
-  @each $size,
-  $shades in $colors {
-
-    @each $shade,
-    $value in $shades {
+  @each $size, $shades in $colors {
+    @each $shade, $value in $shades {
       --clr-#{$size}-#{$shade}: #{$value};
     }
   }
 
-  @each $size,
-  $scales in $type-scale {
-
-    @each $shade,
-    $value in $scales {
+  @each $size, $scales in $type-scale {
+    @each $shade, $value in $scales {
       --ff-#{$size}-#{$shade}: #{$value};
     }
   }
 
-  --fam-primary: 'Quicksand',
-  Tahoma,
-  Geneva,
-  Verdana,
-  sans-serif;
-  --fam-secondary: 'Inter',
-  sans-serif;
-  --fam-handwriting: 'Satisfy',
-  cursive;
-
+  --fam-primary: "Quicksand", Tahoma, Geneva, Verdana, sans-serif;
+  --fam-secondary: "Inter", sans-serif;
+  --fam-handwriting: "Satisfy", cursive;
   --clr-body: #171a23;
-  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Box sizing rules */
@@ -81,8 +52,8 @@ h4 {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 

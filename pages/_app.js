@@ -31,11 +31,10 @@ function MyApp({ Component, pageProps }) {
               "#77641B",
             ],
           },
-          // fontFamily: 'DM Sans, sans-serif',
-          fontFamily: 'DM Sans, sans-serif',
+          fontFamily: "DM Sans, sans-serif",
           headings: {
             fontFamily: "Fira Sans",
-          }
+          },
         }}
       >
         <Navbar />
