@@ -89,7 +89,7 @@ function Counter({ from, to }) {
     const node = nodeRef.current;
 
     const controls = animate(from, to, {
-      duration: 5,
+      duration: 4,
       onUpdate(value) {
         node.textContent = value.toFixed(0) || 10;
       },
