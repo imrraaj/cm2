@@ -59,8 +59,11 @@ export default function Home() {
     <main style={{ position: "relative" }}>
       <Head>
         <title>CryptoMaxxis</title>
+        <meta
+          name="description"
+          content="One of the largest cryptocurrency investors community based in Asia. Host text/video AMA sessions. AMAs help projects to reach a wider audience and also act as an introductory medium for the project to our community."
+        />
       </Head>
-      {/* {showCookie && <CookiesBanner />} */}
       <Banner />
       <Stats />
       <Services />

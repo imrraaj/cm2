@@ -73,7 +73,7 @@ export default function HeroContentLeft() {
   return (
     <div className={classes.hero} id="home">
       <Overlay
-        gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
+        gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .4) 40%)"
         opacity={1}
         zIndex={0}
       />
