@@ -35,12 +35,6 @@ function Footer() {
         <p>
           &copy; {new Date().getFullYear()} Cryto Maxxis | All rights reserved
         </p>
-        <p>
-          Powered By{" "}
-          <Link href="https://github.com/imrraaj" target="_blank">
-            @imrraaj
-          </Link>
-        </p>
       </div>
       <div className={styles.socials}>
         <Link href="https://t.me/Crypto_Maxxis">
