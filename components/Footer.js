@@ -33,7 +33,7 @@ function Footer() {
       <div className={styles.logo}>
         <Text className={classes.title}>Crypto Maxxis</Text>
         <p>
-          &copy; {new Date().getFullYear()} Cryto Maxxis | All rights reserved
+          &copy; {new Date().getFullYear()} Crypto Maxxis | All rights reserved
         </p>
       </div>
       <div className={styles.socials}>
