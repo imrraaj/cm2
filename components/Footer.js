@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaTwitter, FaTelegramPlane } from "react-icons/fa";
-import { TbSpeakerphone } from "react-icons/tb";
+import { TbSpeakerphone, TbBrandBinance } from "react-icons/tb";
 import styles from "../styles/Footer.module.scss";
 import { createStyles, Text } from "@mantine/core";
 
@@ -50,6 +50,11 @@ function Footer() {
         <Link href="https://twitter.com/crypto_maxxis">
           <div className={classes.social__round}>
             <FaTwitter />
+          </div>
+        </Link>
+        <Link href="https://www.binance.com/en/live/u/28782119">
+          <div className={classes.social__round}>
+            <TbBrandBinance />
           </div>
         </Link>
       </div>
